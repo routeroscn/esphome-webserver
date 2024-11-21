@@ -30,12 +30,17 @@
       <br>
 
       <h1>OTA Update</h1>
-      <form method="POST" action="/update" enctype="multipart/form-data">
+      <form method="POST" action="/update" enctype="multipart/form-data" onsubmit="disableButton();">
         <input type="file" name="update" />
-        <button type="submit">Update</button>
+        <button type="submit" id="submitBtn">Update</button>
       </form>
     </main>
-
+    <script>
+      function disableButton() {
+        document.getElementById('submitBtn').disabled = true;
+        document.getElementById('submitBtn').value = "Updating...";
+      }
+    </script>
     <script type="module" src="/src/main.ts?module"></script>
   </body>
 </html>
