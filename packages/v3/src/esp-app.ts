@@ -158,10 +158,17 @@ export default class EspApp extends LitElement {
           action="${basePath}/update"
           enctype="multipart/form-data"
           class="tab-container"
+          onsubmit="disableButton();"
         >
           <input class="btn" type="file" name="update" accept="application/octet-stream" />
-          <input class="btn" type="submit" value="Update" />
+          <input class="btn" type="submit" value="Update" id="submitBtn" />
         </form>`;
+        <script>
+          function disableButton() {
+            document.getElementById('submitBtn').disabled = true;
+            document.getElementById('submitBtn').value = "Updating...";
+          }
+        </script>
     }
   }
 
